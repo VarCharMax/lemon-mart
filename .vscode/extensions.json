@@ -12,7 +12,6 @@
     "expertly-simple.ng-evergreen",
     "msjsdiag.debugger-for-edge",
     "johnpapa.vscode-peacock",
-    "ms-vscode.vscode-typescript-tslint-plugin",
     "expertly-simple.ng-evergreen",
     "angular.ng-template",
     "johnpapa.angular2",
@@ -20,18 +19,15 @@
     "coenraads.bracket-pair-colorizer-2",
     "ms-dotnettools.csharp",
     "dart-code.dart-code",
-    "msjsdiag.debugger-for-chrome",
     "editorconfig.editorconfig",
     "dbaeumer.vscode-eslint",
     "dart-code.flutter",
     "ritwickdey.liveserver",
     "pkief.material-icon-theme",
-    "eg2.vscode-npm-script",
     "christian-kohler.npm-intellisense",
     "nrwl.angular-console",
     "christian-kohler.path-intellisense",
     "ms-python.python",
-    "ms-vscode.vscode-typescript-tslint-plugin",
     "dskwrk.vscode-generate-getter-setter",
     "octref.vetur",
     "visualstudioexptteam.vscodeintellicode",
@@ -51,7 +47,6 @@
     "sirtori.indenticator",
     "xabikos.javascriptsnippets",
     "ms-kubernetes-tools.vscode-kubernetes-tools",
-    "ritwickdey.live-sass",
     "ritwickdey.liveserver",
     "pkief.material-icon-theme",
     "alefragnani.numbered-bookmarks",
@@ -59,7 +54,6 @@
     "ms-vscode.theme-predawnkit",
     "humao.rest-client",
     "chakrounanas.turbo-console-log",
-    "redhat.vscode-yaml",
-    "HookyQR.beautify"
+    "redhat.vscode-yaml"
   ]
 }
