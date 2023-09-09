@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"debug.openExplorerOnEnd": true,
+		"explorer.openEditors.visible": 0,
+		"files.autoSave": "onFocusChange",
+		"git.confirmSync": false,
+		"typescript.tsdk": "node_modules/typescript/lib",
+		"workbench.iconTheme": "material-icon-theme",
+		"gitlens.menus": {
+			"editorGroup": false
+		},
+		"ng-evergreen.upgradeChannel": "Latest"
+	}
+}
