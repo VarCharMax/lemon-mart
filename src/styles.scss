@@ -1,4 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.all-component-typographies();
+@include mat.core();
+
+$lemonmart-app-primary: mat.define-palette(mat.$red-palette, 500);
+$lemonmart-app-accent: mat.define-palette(mat.$indigo-palette, A400);
+$lemonmart-app-warn: mat.define-palette(mat.$red-palette);
+
+$lemonmart-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $lemonmart-app-primary,
+      accent: $lemonmart-app-accent,
+      warn: $lemonmart-app-warn,
+    ),
+  )
+);
+
+// create a dark theme
+$lemonmart-app-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $lemonmart-app-primary,
+      accent: $lemonmart-app-accent,
+      warn: $lemonmart-app-warn,
+    ),
+  )
+);
+
+.dark-theme {
+  @include mat.all-component-colors($lemonmart-app-dark-theme);
+}
+
+@include mat.all-component-themes($lemonmart-app-theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+.vertical-margin {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
