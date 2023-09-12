@@ -25,6 +25,7 @@ import { UserModule } from './user/user.module';
     InventoryModule,
     PosModule,
     UserModule,
+    ManagerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
