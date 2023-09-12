@@ -8,6 +8,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+  },
+  {
     path: 'manager',
     loadChildren: () => import('./manager/manager.module').then((m) => m.ManagerModule),
   },

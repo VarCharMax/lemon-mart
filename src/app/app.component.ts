@@ -9,8 +9,12 @@ import { DomSanitizer } from '@angular/platform-browser';
       <mat-icon svgIcon="lemon"></mat-icon>
       <a mat-button routerLink="/home"><h1>LemonMart</h1></a>
       <span class="flex-spacer"></span>
-      <button mat-icon-button><mat-icon>account_circle</mat-icon></button>
-      <button mat-icon-button><mat-icon>lock_open</mat-icon></button>
+      <button mat-mini-fab matTooltip="Profile" routerLink="/user/profile">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <button mat-icon-button routerLink="/user/logout" matTooltip="Logout">
+        <mat-icon>lock_open</mat-icon>
+      </button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   `,

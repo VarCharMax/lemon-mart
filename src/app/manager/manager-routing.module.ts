@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ManagerHomeComponent } from './manager-home/manager-home.component';
 import { ManagerComponent } from './manager.component';
+import { ReceiptLookupComponent } from './receipt-lookup/receipt-lookup.component';
+import { UserManagerComponent } from './user-manager/user-manager.component';
 
 const routes: Routes = [
   {
@@ -11,6 +13,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/manager/home', pathMatch: 'full' },
       { path: 'home', component: ManagerHomeComponent },
+      { path: 'users', component: UserManagerComponent },
+      { path: 'receipts', component: ReceiptLookupComponent },
     ],
   },
 ];
