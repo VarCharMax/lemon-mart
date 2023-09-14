@@ -12,6 +12,13 @@ import { Component } from '@angular/core';
       <a mat-button routerLink="/manager/receipts" routerLinkActive="active-link"
         >Receipt Lookup</a
       >
+      <span class="flex-spacer"></span>
+      <button mat-mini-fab routerLink="/inventory" matTooltip="Inventory">
+        <mat-icon>list</mat-icon>
+      </button>
+      <button mat-mini-fab routerLink="/pos" matTooltip="POS">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
     </mat-toolbar>
     <router-outlet></router-outlet>`,
   styles: [
