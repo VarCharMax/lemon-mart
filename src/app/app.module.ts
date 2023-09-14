@@ -6,12 +6,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { InventoryModule } from './inventory/inventory.module';
-import { ManagerModule } from './manager/manager.module';
 import { MaterialModule } from './material.module';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
-import { PosModule } from './pos/pos.module';
-import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, PageNotFoundComponent],
@@ -21,11 +17,6 @@ import { UserModule } from './user/user.module';
     AppRoutingModule,
     NoopAnimationsModule,
     MaterialModule,
-    ManagerModule,
-    InventoryModule,
-    PosModule,
-    UserModule,
-    ManagerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
