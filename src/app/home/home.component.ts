@@ -3,13 +3,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-home',
   template: `
-    <div fxLayout="column" fxLayoutAlign="center center">
-      <span class="mat-display-2">Hello, Lemonite!</span>
-      <button mat-raised-button color="primary" routerLink="/manager">
-        Login as Manager
-      </button>
+    <div *ngIf="displayLogin">
+      <app-login></app-login>
+    </div>
+    <div *ngIf="!displayLogin">
+      <span class="mat-display-3"
+        >You get a lemon, you get a lemon, you get a lemon...</span
+      >
     </div>
   `,
   styles: [],
 })
-export class HomeComponent {}
+export class HomeComponent {
+  displayLogin = true;
+}

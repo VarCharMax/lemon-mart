@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { sign } from 'fake-jwt-sign'; // For fakeAuthProvider only
-import * as decode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 import {
   BehaviorSubject,
   Observable,
@@ -17,7 +17,7 @@ import { Role } from './role.enum';
 export interface IAuthService {
   authStatus: BehaviorSubject<IAuthStatus>;
   login(email: string, password: string): Observable<IAuthStatus>;
-  logout();
+  logout(): null;
   getToken(): string;
 }
 
@@ -86,7 +86,7 @@ export class AuthService implements IAuthService {
     const loginResponse = this.authProvider(email, password).pipe(
       map((value) => {
         // this.setToken(value.accessToken);
-        return decode(value.accessToken) as IAuthStatus;
+        return jwt_decode(value.accessToken) as IAuthStatus;
       }),
       catchError(transformError)
     );
@@ -104,9 +104,10 @@ export class AuthService implements IAuthService {
     return loginResponse;
   }
 
-  logout() {
+  logout(): null {
     // this.clearToken();
     this.authStatus.next(defaultAuthStatus);
+    return null;
   }
 
   getToken(): string {
