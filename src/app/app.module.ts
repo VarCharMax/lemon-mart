@@ -5,6 +5,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthService } from './auth/auth.service';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
@@ -18,7 +19,7 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
     NoopAnimationsModule,
     MaterialModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

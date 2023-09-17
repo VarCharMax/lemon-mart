@@ -28,10 +28,12 @@
 			"postdocker",
 			"posttest",
 			"predocker",
+			"silintl",
 			"stockentry",
 			"subsink",
 			"SVGS",
-			"taillogs"
+			"taillogs",
+			"tsutils"
 		]
 	}
 }
