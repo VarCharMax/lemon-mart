@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
 import { Role } from '../auth/role.enum';
+import { UiService } from '../common/ui.service';
 import { EmailValidation, PasswordValidation } from '../common/validations';
 
 @Component({
@@ -30,18 +31,16 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private uiService: UiService
   ) {
     route.paramMap.subscribe((params) => (this.redirectUrl = params.get('redirectUrl')));
   }
 
   buildLoginForm() {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [Validators.required, Validators.minLength(8), Validators.maxLength(50)],
-      ],
+      email: ['', [EmailValidation]],
+      password: ['', [Validators.required, PasswordValidation]],
     });
   }
 
@@ -51,7 +50,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (authStatus) => {
           if (authStatus.isAuthenticated) {
-            this.router.navigate([this.redirectUrl || '/manager']);
+            this.uiService.showToast(`Welcome! Role: ${authStatus.userRole}`);
           }
         },
         (error) => (this.loginError = error)

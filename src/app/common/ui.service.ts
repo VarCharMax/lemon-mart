@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core'
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog'
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar'
-import { Observable } from 'rxjs'
+import { Injectable } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
-import { SimpleDialogComponent } from './simple-dialog.component'
+import { SimpleDialogComponent } from './simple-dialog.component';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +21,7 @@ export class UiService {
       config || {
         duration: 7000,
       }
-    )
+    );
   }
 
   showDialog(
@@ -37,8 +37,7 @@ export class UiService {
         width: '300px',
         data: { title, content, okText, cancelText },
       }
-    )
-
-    return dialogRef.afterClosed()
+    );
+    return dialogRef.afterClosed();
   }
 }
