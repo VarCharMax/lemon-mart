@@ -17,11 +17,21 @@
 		"ng-evergreen.upgradeChannel": "Latest",
 		"cSpell.words": [
 			"browserconfig",
+			"debugmessage",
+			"devkit",
+			"jasminewd",
 			"Lemonite",
 			"lemonmart",
 			"mstile",
+			"ngbracket",
 			"pagenotfound",
-			"stockentry"
+			"postdocker",
+			"posttest",
+			"predocker",
+			"stockentry",
+			"subsink",
+			"SVGS",
+			"taillogs"
 		]
 	}
 }
