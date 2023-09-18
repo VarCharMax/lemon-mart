@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material.module';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
     PageNotFoundComponent,
     LoginComponent,
     SimpleDialogComponent,
+    NavigationMenuComponent,
   ],
   imports: [
     HttpClientModule,
