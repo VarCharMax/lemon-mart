@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { SubSink } from 'subsink';
 
 import { AuthService } from '../auth/auth.service';
 import { Role } from '../auth/role.enum';
@@ -39,8 +40,8 @@ export class LoginComponent implements OnInit {
 
   buildLoginForm() {
     this.loginForm = this.formBuilder.group({
-      email: ['', [EmailValidation]],
-      password: ['', [Validators.required, PasswordValidation]],
+      email: ['', EmailValidation],
+      password: ['', PasswordValidation],
     });
   }
 

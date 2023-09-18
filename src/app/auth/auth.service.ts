@@ -41,10 +41,16 @@ export class AuthService extends CacheService implements IAuthService {
     email: string,
     password: string
   ) => Observable<IServerAuthResponse>;
-  authStatus = new BehaviorSubject<IAuthStatus>(defaultAuthStatus);
+
+  authStatus = new BehaviorSubject<IAuthStatus>(
+    this.getItem('authStatus') || defaultAuthStatus
+  );
 
   constructor(private httpClient: HttpClient) {
     super();
+
+    this.authStatus.subscribe((authStatus) => this.setItem('authStatus', authStatus));
+
     // Fake login function to simulate roles
     this.authProvider = this.fakeAuthProvider;
     // Example of a real login call to server-side
@@ -113,7 +119,6 @@ export class AuthService extends CacheService implements IAuthService {
 
   getToken(): string {
     return this.getItem('jwt') || '';
-    return '';
   }
 
   private setToken(jwt: string) {
@@ -121,7 +126,7 @@ export class AuthService extends CacheService implements IAuthService {
   }
 
   private getDecodedToken(): IAuthStatus {
-    return jwt_decode(this.getItem('jwt') ?? '');
+    return jwt_decode(this.getItem('jwt') || '');
   }
 
   private clearToken() {
