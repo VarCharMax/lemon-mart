@@ -38,6 +38,10 @@ export class LoginComponent implements OnInit {
     route.paramMap.subscribe((params) => (this.redirectUrl = params.get('redirectUrl')));
   }
 
+  ngOnInit(): void {
+    this.buildLoginForm();
+  }
+
   buildLoginForm() {
     this.loginForm = this.formBuilder.group({
       email: ['', EmailValidation],
@@ -52,13 +56,25 @@ export class LoginComponent implements OnInit {
         (authStatus) => {
           if (authStatus.isAuthenticated) {
             this.uiService.showToast(`Welcome! Role: ${authStatus.userRole}`);
+            this.router.navigate([
+              this.redirectUrl || this.homeRoutePerRole(authStatus.userRole),
+            ]);
           }
         },
         (error) => (this.loginError = error)
       );
   }
 
-  ngOnInit(): void {
-    this.buildLoginForm();
+  homeRoutePerRole(role: Role) {
+    switch (role) {
+      case Role.Cashier:
+        return '/pos';
+      case Role.Clerk:
+        return '/inventory';
+      case Role.Manager:
+        return '/manager';
+      default:
+        return '/user/profile';
+    }
   }
 }
