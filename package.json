@@ -42,11 +42,12 @@
     "lint:ts:fix": "tslint --config tslint.json --fix --project . -e \"**/{test,polyfills}.ts\"",
     "lint:tsc": "tsc --noEmit --skipLibCheck",
     "docker:stop": "cross-conf-env docker stop $npm_package_config_imageName || true",
-    "docker:open": "sleep 2 && cross-conf-env open-cli http://localhost:$npm_package_config_imagePort"
+    "docker:open": "sleep 2 && cross-conf-env open-cli http://localhost:$npm_package_config_imagePort",
+    "mock:standalone": "docker run -p 3000:3000 -t arabesque/swagger-server"
   },
   "private": true,
   "config": {
-    "imageRepo": "073020584345.dkr.ecr.us-east-1.amazonaws.com/lemon-mart",
+    "imageRepo": "arabesque/lemon-mart",
     "imageName": "lemon-mart",
     "imagePort": "8080",
     "internalContainerPort": "80",
