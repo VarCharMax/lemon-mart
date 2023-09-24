@@ -16,6 +16,7 @@ export interface IUser {
     line1: string;
     line2: string;
     city: string;
+    state: string;
     zip: string;
   };
   phones: IPhone[];
@@ -36,7 +37,7 @@ export class User implements IUser {
     public role = Role.None,
     public dateOfBirth = <Date>{},
     public userStatus = false,
-    public address = { line1: '', line2: '', city: '', zip: '' },
+    public address = { line1: '', line2: '', city: '', state: '', zip: '' },
     public phones: IPhone[] = []
   ) {}
 
