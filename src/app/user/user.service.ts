@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { AuthService, IAuthStatus } from '../auth/auth.service';
@@ -38,7 +38,7 @@ export class UserService extends CacheService {
 
     updateResponse.subscribe({
       next: (res) => this.currentUser.next(res),
-      error: (err) => Observable.throw(err),
+      error: (err) => throwError(() => new Error(err)),
       complete: () => this.removeItem('draft-user'),
     });
 
@@ -52,7 +52,7 @@ export class UserService extends CacheService {
 
     userObservable.subscribe({
       next: (user) => this.currentUser.next(user),
-      error: (err) => Observable.throw(err),
+      error: (err) => throwError(() => new Error(err)),
     });
 
     return userObservable;

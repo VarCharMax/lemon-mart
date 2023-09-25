@@ -5,18 +5,14 @@ import { Component } from '@angular/core';
   template: `
     <mat-nav-list>
       <h3 matSubheader>Manager</h3>
-      <a
-        mat-list-item
-        routerLinkActive="active-link"
-        routerLink="/
-      manager/users"
+      <a mat-list-item routerLinkActive="active-link" routerLink="/manager/users"
         >Users</a
       >
       <a mat-list-item routerLinkActive="active-link" routerLink="/manager/receipts"
         >Receipts</a
       >
       <h3 matSubheader>Inventory</h3>
-      <a mat-list-item routerLinkActive="active-link" routerLink="/inventory/stockEntry"
+      <a mat-list-item routerLinkActive="active-link" routerLink="/inventory/stockentry"
         >Stock Entry</a
       >
       <a mat-list-item routerLinkActive="active-link" routerLink="/inventory/products"

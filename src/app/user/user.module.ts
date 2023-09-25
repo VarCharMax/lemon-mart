@@ -8,9 +8,15 @@ import { NavigationMenuComponent } from './navigation-menu/navigation-menu.compo
 import { ProfileComponent } from './profile/profile.component';
 import { UserMaterialModule } from './user-material.module';
 import { UserRoutingModule } from './user-routing.module';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 @NgModule({
-  declarations: [ProfileComponent, LogoutComponent, NavigationMenuComponent],
+  declarations: [
+    ProfileComponent,
+    LogoutComponent,
+    NavigationMenuComponent,
+    ViewUserComponent,
+  ],
   imports: [
     CommonModule,
     UserRoutingModule,

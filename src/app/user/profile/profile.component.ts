@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, map, startWith } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Role as UserRole } from 'src/app/auth/role.enum';
 import {
+  AUPhoneNumberValidation,
   AUPostCodeValidation,
   BirthDateValidation,
   EmailValidation,
@@ -13,9 +14,9 @@ import {
 } from 'src/app/common/validations';
 import { $enum } from 'ts-enum-util';
 
-import { IUser } from '../user';
+import { IPhone, IUser } from '../user';
 import { UserService } from '../user.service';
-import { IAUState, PhoneType } from './data';
+import { AUStateFilter, IAUState, PhoneType } from './data';
 
 @Component({
   selector: 'app-profile',
@@ -26,7 +27,7 @@ export class ProfileComponent implements OnInit {
   Role = UserRole;
   PhoneTypes = $enum(PhoneType).getKeys();
   userForm: FormGroup = <FormGroup>{};
-  states: Observable<IAUState> = <Observable<IAUState>>{};
+  states: Observable<IAUState[]> = <Observable<IAUState[]>>{};
   userError = '';
   currentUserRole = this.Role.None;
 
@@ -49,8 +50,51 @@ export class ProfileComponent implements OnInit {
     this.buildUserForm();
   }
 
+  get phonesArray(): FormArray {
+    return <FormArray>this.userForm.get('phones');
+  }
+
   get addressFormGroup(): FormGroup {
     return this.userForm?.get('address') as FormGroup;
+  }
+
+  get nameFormGroup(): FormGroup {
+    return this.userForm?.get('name') as FormGroup;
+  }
+
+  get dateOfBirth() {
+    return this.userForm!.get('dateOfBirth')?.value || new Date();
+  }
+
+  addPhone() {
+    this.phonesArray.push(
+      this.buildPhoneFormControl(this.userForm!.get('phones')!.value.length + 1)
+    );
+  }
+
+  get age() {
+    return new Date().getFullYear() - this.dateOfBirth.getFullYear();
+  }
+
+  private buildPhoneArray(phones: IPhone[]) {
+    const groups = [];
+
+    if (!phones || (phones && phones.length === 0)) {
+      groups.push(this.buildPhoneFormControl(1));
+    } else {
+      phones.forEach((p) => {
+        groups.push(this.buildPhoneFormControl(p.id, p.type, p.number));
+      });
+    }
+    return groups;
+  }
+
+  private buildPhoneFormControl(id: number, type?: string, number?: string) {
+    return this.formBuilder.group({
+      id: [id],
+      type: [type || '', Validators.required],
+      number: [number || '', AUPhoneNumberValidation],
+    });
   }
 
   buildUserForm(user?: IUser) {
@@ -87,6 +131,21 @@ export class ProfileComponent implements OnInit {
         ],
         zip: [(user && user.address && user.address.zip) || '', AUPostCodeValidation],
       }),
+      phones: this.formBuilder.array(this.buildPhoneArray(user ? user.phones : [])),
+    });
+
+    this.states = this.userForm!.get('address')!
+      .get('state')!
+      .valueChanges.pipe(
+        startWith(''),
+        map((value) => AUStateFilter(value))
+      );
+  }
+
+  async save(form: FormGroup) {
+    this.userService.updateUser(form.value).subscribe({
+      next: (res) => this.buildUserForm(res),
+      error: (err) => (this.userError = err),
     });
   }
 }
