@@ -49,6 +49,10 @@ export class ProfileComponent implements OnInit {
     this.buildUserForm();
   }
 
+  get addressFormGroup(): FormGroup {
+    return this.userForm?.get('address') as FormGroup;
+  }
+
   buildUserForm(user?: IUser) {
     this.userForm = this.formBuilder.group({
       email: [
