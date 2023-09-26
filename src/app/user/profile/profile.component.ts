@@ -9,6 +9,7 @@ import {
   AUPostCodeValidation,
   BirthDateValidation,
   EmailValidation,
+  OneCharValidation,
   OptionalTextValidation,
   RequiredTextValidation,
 } from 'src/app/common/validations';
@@ -106,7 +107,11 @@ export class ProfileComponent implements OnInit {
         },
         EmailValidation,
       ],
-      name: this.formBuilder.group({}),
+      name: this.formBuilder.group({
+        first: [(user && user.name.first) || '', RequiredTextValidation],
+        middle: [(user && user.name.middle) || '', OneCharValidation],
+        last: [(user && user.name.last) || '', RequiredTextValidation],
+      }),
       role: [
         {
           value: (user && user.role) || '',
