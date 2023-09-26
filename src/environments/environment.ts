@@ -1,4 +1,6 @@
 export const environment = {
   production: false,
-  baseUrl: 'http://',
-}
+  baseUrl: 'http://localhost:3000',
+};
+
+import 'zone.js/dist/zone-error';
