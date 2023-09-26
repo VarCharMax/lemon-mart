@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { SubSink } from 'subsink';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
 import { Role } from '../auth/role.enum';
 import { UiService } from '../common/ui.service';
 import { EmailValidation, PasswordValidation } from '../common/validations';
+
+// import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-login',
@@ -61,7 +62,9 @@ export class LoginComponent implements OnInit {
             ]);
           }
         },
-        error: (error) => (this.loginError = error),
+        error: (error) => {
+          this.loginError = error;
+        },
       });
   }
 

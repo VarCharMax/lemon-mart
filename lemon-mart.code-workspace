@@ -35,6 +35,7 @@
 			"SVGS",
 			"taillogs",
 			"tsutils"
-		]
+		],
+		"ng-evergreen.checkFrequency": "Daily"
 	}
 }

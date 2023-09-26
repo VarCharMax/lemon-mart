@@ -21,13 +21,14 @@ export class AuthHttpInterceptor implements HttpInterceptor {
     const jwt = this.authService.getToken();
     const authRequest = req.clone({ setHeaders: { authorization: `Bearer ${jwt}` } });
     return next.handle(authRequest).pipe(
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       catchError((err, caught) => {
         if (err.status === 401) {
           this.router.navigate(['/user/login'], {
             queryParams: { redirectUrl: this.router.routerState.snapshot.url },
           });
         }
-        return observableThrowError(err);
+        return observableThrowError(() => new Error(err));
       })
     );
   }

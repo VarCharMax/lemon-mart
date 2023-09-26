@@ -2,15 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { sign } from 'fake-jwt-sign'; // For fakeAuthProvider only
 import jwt_decode from 'jwt-decode';
-import {
-  BehaviorSubject,
-  Observable,
-  throwError as observableThrowError,
-  of,
-} from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { environment } from '../../environments/environment';
 import { transformError } from '../common/common';
 import { CacheService } from './cache.service';
 import { Role } from './role.enum';
@@ -59,10 +53,13 @@ export class AuthService extends CacheService implements IAuthService {
 
   private fakeAuthProvider(
     email: string,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     password: string
   ): Observable<IServerAuthResponse> {
     if (!email.toLowerCase().endsWith('@test.com')) {
-      return observableThrowError('Failed to login! Email needs to end with @test.com.');
+      return throwError(
+        () => new Error('Failed to login! Email needs to end with @test.com.')
+      );
     }
 
     const authStatus = {
@@ -98,15 +95,15 @@ export class AuthService extends CacheService implements IAuthService {
       catchError(transformError)
     );
 
-    loginResponse.subscribe(
-      (res) => {
+    loginResponse.subscribe({
+      next: (res) => {
         this.authStatus.next(res);
       },
-      (err) => {
+      error: (err) => {
         this.logout();
-        return observableThrowError(err);
-      }
-    );
+        return () => throwError(() => new Error(err));
+      },
+    });
 
     return loginResponse;
   }
