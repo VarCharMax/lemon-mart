@@ -96,11 +96,11 @@
             <input matInput placeholder="Address Line 1" aria-label="Address Line 1" formControlName="line1">
             <mat-error *ngIf="userForm.get('address')!.get('line1')?.hasError('required')">
               Line 1 is required
-            </mat-error>
-            <mat-error *ngIf="userForm.get('address')!.get('line1')?.hasError('minLength')">
+            </mat-error>/
+            <mat-error *ngIf="userForm.get('address')?.get('line1')?.hasError('minLength')">
               Must be at least 2 characters
             </mat-error>
-            <mat-error *ngIf="userForm.get('address')!.get('line1')?.hasError('maxLength')">
+            <mat-error *ngIf="userForm.get('address')?.get('line1')?.hasError('maxLength')">
               Can't exceed 50 characters
             </mat-error>
           </mat-form-field>

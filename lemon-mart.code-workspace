@@ -6,7 +6,7 @@
 	],
 	"settings": {
 		"debug.openExplorerOnEnd": true,
-		"explorer.openEditors.visible": 0,
+		"explorer.openEditors.visible": 1,
 		"files.autoSave": "onFocusChange",
 		"git.confirmSync": false,
 		"typescript.tsdk": "node_modules/typescript/lib",
@@ -19,6 +19,7 @@
 			"browserconfig",
 			"debugmessage",
 			"devkit",
+			"fakeid",
 			"getdisplay",
 			"jasminewd",
 			"Lemonite",
