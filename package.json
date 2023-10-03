@@ -12,7 +12,6 @@
     "test:debug": "npm test -- --browsers Chrome --source-map",
     "lint": "run-p lint:ts lint:tsc",
     "lint:fix": "run-s lint:ts:fix lint:tsc",
-    "stylelint-scss-check": "stylelint-config-prettier-scss-check",
     "build:prod": "ng build --configuration production",
     "build:integration": "cross-conf-env docker image build -f Dockerfile.integration . -t $npm_package_config_imageRepo:latest",
     "test:prod": "npm test -- --browsers ChromiumNoSandbox --watch=false",
@@ -52,7 +51,7 @@
     "imageName": "lemon-mart",
     "imagePort": "8080",
     "internalContainerPort": "80",
-    "awsRegion": "us-east-1",
+    "awsRegion": "ap-east-1",
     "awsEcsCluster": "lemon-mart-cluster",
     "awsService": "lemon-mart-service"
   },
