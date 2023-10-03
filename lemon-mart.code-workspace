@@ -17,6 +17,8 @@
 		"ng-evergreen.upgradeChannel": "Latest",
 		"cSpell.words": [
 			"browserconfig",
+			"chromedriver",
+			"cimg",
 			"debugmessage",
 			"devkit",
 			"fakeid",
@@ -26,6 +28,7 @@
 			"lemonmart",
 			"mstile",
 			"ngbracket",
+			"ngcc",
 			"ngrx",
 			"pagenotfound",
 			"postdocker",
@@ -37,7 +40,8 @@
 			"subsink",
 			"SVGS",
 			"taillogs",
-			"tsutils"
+			"tsutils",
+			"Vercel"
 		],
 		"ng-evergreen.checkFrequency": "Daily"
 	}

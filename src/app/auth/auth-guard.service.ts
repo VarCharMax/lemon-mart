@@ -18,7 +18,7 @@ import { AuthService, IAuthStatus } from './auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
+export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad {
   protected currentAuthStatus: IAuthStatus = <IAuthStatus>{};
   constructor(
     protected authService: AuthService,

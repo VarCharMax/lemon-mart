@@ -7,7 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './app-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './auth/auth-guard.service';
+import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthHttpInterceptor } from './auth/auth-http-interceptor';
 import { AuthService } from './auth/auth.service';
 import { SimpleDialogComponent } from './common/simple-dialog.component';
@@ -35,7 +35,7 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
   ],
   providers: [
     AuthService,
-    AuthGuard,
+    AuthGuardService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
