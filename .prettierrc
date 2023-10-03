@@ -7,5 +7,19 @@
   "parser": "typescript",
   "trailingComma": "es5",
   "bracketSameLine": true,
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser":"html"
+      }
+    },
+    {
+      "files": "*.scss",
+      "options": {
+        "parser":"scss"
+      }
+    }
+  ]
 }

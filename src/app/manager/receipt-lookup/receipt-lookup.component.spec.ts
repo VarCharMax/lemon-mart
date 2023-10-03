@@ -8,7 +8,7 @@ describe('ReceiptLookupComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ReceiptLookupComponent]
+      declarations: [ReceiptLookupComponent],
     });
     fixture = TestBed.createComponent(ReceiptLookupComponent);
     component = fixture.componentInstance;

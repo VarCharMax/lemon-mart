@@ -8,7 +8,7 @@ describe('NavigationMenuComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NavigationMenuComponent]
+      declarations: [NavigationMenuComponent],
     });
     fixture = TestBed.createComponent(NavigationMenuComponent);
     component = fixture.componentInstance;

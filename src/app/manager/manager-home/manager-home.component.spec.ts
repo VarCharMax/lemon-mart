@@ -8,7 +8,7 @@ describe('ManagerHomeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ManagerHomeComponent]
+      declarations: [ManagerHomeComponent],
     });
     fixture = TestBed.createComponent(ManagerHomeComponent);
     component = fixture.componentInstance;

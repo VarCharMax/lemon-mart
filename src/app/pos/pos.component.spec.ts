@@ -8,7 +8,7 @@ describe('PosComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PosComponent]
+      declarations: [PosComponent],
     });
     fixture = TestBed.createComponent(PosComponent);
     component = fixture.componentInstance;
