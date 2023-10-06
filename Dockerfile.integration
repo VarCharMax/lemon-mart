@@ -2,7 +2,6 @@ FROM node:20-bullseye as builder
 
 RUN apt update -y
 RUN apt install chromium -y
-RUN apt install chromium-browser -y
 
 ENV BUILDER_SRC_DIR=/usr/src
 
