@@ -16,6 +16,7 @@
 		},
 		"ng-evergreen.upgradeChannel": "Latest",
 		"cSpell.words": [
+			"bqjw",
 			"browserconfig",
 			"chromedriver",
 			"cimg",
