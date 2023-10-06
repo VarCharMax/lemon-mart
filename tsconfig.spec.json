@@ -9,7 +9,8 @@
   },
   "include": [
     "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "src/polyfills.ts", "src/test.ts", "src/**/*.spec.ts", "src/**/*.d.ts"
   ],
-  "exclude": ["./cypress.config.ts"]
+  "exclude": ["node_modules"]
 }

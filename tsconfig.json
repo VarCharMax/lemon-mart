@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -24,8 +23,7 @@
       "dom"
     ]
   },
-  "exclude": ["cypress.config.ts"],
-  "files": ["cypress.config.ts"],
+  "exclude": ["cypress",],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
