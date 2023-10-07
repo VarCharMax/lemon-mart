@@ -78,7 +78,7 @@ export class ProfileComponent implements OnInit {
   }
 
   private buildPhoneArray(phones: IPhone[]) {
-    const groups = [];
+    const groups: FormGroup[] = [];
 
     if (!phones || (phones && phones.length === 0)) {
       groups.push(this.buildPhoneFormControl(1));
