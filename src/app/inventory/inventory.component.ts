@@ -17,6 +17,6 @@ import { Component } from '@angular/core';
       >
     </mat-toolbar>
     <router-outlet></router-outlet>`,
-  styles: [``],
+  styles: [],
 })
 export class InventoryComponent {}
