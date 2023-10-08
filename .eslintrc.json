@@ -43,7 +43,16 @@
         "plugin:@angular-eslint/template/accessibility",
         "prettier"
       ],
-      "rules": {}
+      "rules": {
+        "curly": 2,
+        "no-bitwise": 2,
+        "no-console": 2,
+        "no-debugger": 2,
+        "no-empty": 2,
+        "no-eval": 2,
+        "prefer-const": 2,
+        "radix": 2
+      }
     }
   ]
 }

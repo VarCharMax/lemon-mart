@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <p>
       This page doesn't exist. Go back to
-      <a routerLink="/home"></a>.
+      <a routerLink="/home">Home</a>.
     </p>
   `,
   styleUrls: ['./pagenotfound.component.scss'],
