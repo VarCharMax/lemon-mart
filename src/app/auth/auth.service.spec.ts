@@ -9,16 +9,14 @@ describe('AuthService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
-        AuthService,
         {
           provide: ActivatedRoute,
           useValue: {
-            snapshot: { params: { id: '24fkzrw3487943uf358lovd' } },
+            snapshot: { params: { id: '1234' } },
           },
         },
       ],
     });
-    // service = TestBed.inject(AuthService);
   });
 
   it('should be created', inject([AuthService], (service: AuthService) => {

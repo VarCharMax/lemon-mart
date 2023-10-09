@@ -12,7 +12,6 @@ describe('InventoryComponent', () => {
     TestBed.configureTestingModule({
       imports: [MaterialModule, RouterModule],
       providers: [
-        InventoryComponent,
         {
           provide: ActivatedRoute,
           useValue: {

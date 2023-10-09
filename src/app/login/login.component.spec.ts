@@ -13,7 +13,6 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, MaterialModule],
       providers: [
-        LoginComponent,
         {
           provide: ActivatedRoute,
           useValue: {

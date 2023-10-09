@@ -13,7 +13,6 @@ describe('ManagerComponent', () => {
     TestBed.configureTestingModule({
       imports: [MaterialModule, RouterModule],
       providers: [
-        ManagerComponent,
         {
           provide: ActivatedRoute,
           useValue: {

@@ -11,7 +11,6 @@ describe('InventoryHomeComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        InventoryHomeComponent,
         {
           provide: ActivatedRoute,
           useValue: {
