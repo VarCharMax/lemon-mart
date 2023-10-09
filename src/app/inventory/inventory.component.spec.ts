@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MaterialModule } from '../app-material.module';
 import { InventoryComponent } from './inventory.component';
 
 describe('InventoryComponent', () => {
@@ -8,6 +9,7 @@ describe('InventoryComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule],
       declarations: [InventoryComponent],
     });
     fixture = TestBed.createComponent(InventoryComponent);

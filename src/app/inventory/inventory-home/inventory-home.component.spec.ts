@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from 'src/app/app-material.module';
 
 import { InventoryHomeComponent } from './inventory-home.component';
 
@@ -8,6 +9,7 @@ describe('InventoryHomeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule],
       declarations: [InventoryHomeComponent],
     });
     fixture = TestBed.createComponent(InventoryHomeComponent);

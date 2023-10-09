@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MaterialModule } from '../app-material.module';
 import { NavigationMenuComponent } from './navigation-menu.component';
 
 describe('NavigationMenuComponent', () => {
@@ -8,6 +9,7 @@ describe('NavigationMenuComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [MaterialModule],
       declarations: [NavigationMenuComponent],
     });
     fixture = TestBed.createComponent(NavigationMenuComponent);
