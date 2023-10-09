@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 
+import { MaterialModule } from '../app-material.module';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
@@ -10,7 +11,7 @@ describe('LoginComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, MaterialModule],
       providers: [
         LoginComponent,
         {
