@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { MaterialModule } from 'src/app/app-material.module';
@@ -10,7 +11,7 @@ describe('ViewUserComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule],
+      imports: [MaterialModule, HttpClientTestingModule],
       declarations: [ViewUserComponent],
       providers: [
         {

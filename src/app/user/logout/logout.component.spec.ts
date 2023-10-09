@@ -9,6 +9,7 @@ describe('LogoutComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [LogoutComponent],
     });
     fixture = TestBed.createComponent(LogoutComponent);
