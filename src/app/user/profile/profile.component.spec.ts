@@ -1,15 +1,11 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/app/app-material.module';
-import { AuthService } from 'src/app/auth/auth.service';
-import { AuthServiceFake } from 'src/app/auth/auth.service.fake';
 
 import { UserMaterialModule } from '../user-material.module';
-import { UserService } from '../user.service';
-import { UserServiceFake } from '../user.service.fake';
-import { ViewUserComponent } from '../view-user/view-user.component';
 import { ProfileComponent } from './profile.component';
 
 describe('ProfileComponent', () => {
@@ -18,28 +14,19 @@ describe('ProfileComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            snapshot: { params: { id: '1234' } },
-          },
-        },
-        {
-          provide: AuthService,
-          useClass: AuthServiceFake,
-        },
-      ],
+      schemas: [NO_ERRORS_SCHEMA],
       imports: [
         HttpClientTestingModule,
         MaterialModule,
         UserMaterialModule,
         ReactiveFormsModule,
+        NoopAnimationsModule,
       ],
-      declarations: [ProfileComponent, ViewUserComponent],
+      declarations: [ProfileComponent],
     });
     fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 
