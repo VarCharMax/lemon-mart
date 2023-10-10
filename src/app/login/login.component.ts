@@ -7,8 +7,6 @@ import { Role } from '../auth/role.enum';
 import { UiService } from '../common/ui.service';
 import { EmailValidation, PasswordValidation } from '../common/validations';
 
-// import { SubSink } from 'subsink';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

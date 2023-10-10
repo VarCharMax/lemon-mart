@@ -5,10 +5,21 @@ import { Observable } from 'rxjs';
 
 import { SimpleDialogComponent } from './simple-dialog.component';
 
+export interface IUIService {
+  showToast(message: string, action: string, config?: MatSnackBarConfig): void;
+  showDialog(
+    title: string,
+    content: string,
+    okText: string,
+    cancelText?: string,
+    customConfig?: MatDialogConfig
+  ): Observable<boolean>;
+}
+
 @Injectable({
   providedIn: 'root',
 })
-export class UiService {
+export class UiService implements IUIService {
   constructor(
     private snackBar: MatSnackBar,
     private dialog: MatDialog
