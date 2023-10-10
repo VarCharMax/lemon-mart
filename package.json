@@ -13,7 +13,7 @@
     "lint": "run-p lint:es lint:tsc",
     "lint:fix": "run-s lint:es:fix lint:tsc",
     "build:prod": "ng build --configuration production",
-    "build:integration": "cross-conf-env docker image build -f Dockerfile.integration . -t $npm_package_config_imageRepo:latest",
+    "build:ci": "cross-conf-env docker build -f Dockerfile.integration . -t $npm_package_config_imageRepo:latest",
     "test:prod": "npm test -- --browsers ChromiumNoSandbox --watch=false",
     "test:prod:e2e": "npm run e2e",
     "cypress:run": "npx cypress run --record",

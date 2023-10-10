@@ -18,7 +18,11 @@ RUN npm run lint
 
 RUN npm run build:prod
 
-FROM duluca/minimal-node-chromium:lts-alpine as tester
+FROM node:20-bullseye as tester
+
+# update and install chromium
+RUN apt update -y
+RUN apt install chromium -y
 
 ENV BUILDER_SRC_DIR=/usr/src
 ENV TESTER_SRC_DIR=/usr/src
@@ -32,9 +36,9 @@ COPY --from=builder $BUILDER_SRC_DIR .
 WORKDIR $TESTER_SRC_DIR
 
 RUN npm run test:prod
-# RUN npm run test:prod:e2e
 
-FROM nginx:latest as webserver
+# FROM nginx:latest as webserver
+FROM slapers/alpine-node-chromium
 
 ENV BUILDER_SRC_DIR=/usr/src
 
