@@ -1,8 +1,8 @@
 FROM node:20-bullseye as builder
 
 # update and install chromium
-RUN apt update -y
-RUN apt install chromium -y
+RUN apt-get update -y
+RUN apt-get install chromium -y
 
 ENV BUILDER_SRC_DIR=/usr/src
 
@@ -18,11 +18,14 @@ RUN npm run lint
 
 RUN npm run build:prod
 
-FROM node:20-bullseye as tester
+FROM --platform=linux/amd64 node:20-bullseye as tester
 
-# update and install chromium
-RUN apt update -y
-RUN apt install chromium -y
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+
+RUN apt-get update -y
+# X virtual framebuffer
+RUN apt-get install -y google-chrome-stable xvfb
 
 ENV BUILDER_SRC_DIR=/usr/src
 ENV TESTER_SRC_DIR=/usr/src
@@ -37,10 +40,9 @@ WORKDIR $TESTER_SRC_DIR
 
 RUN npm run test:prod
 
-# FROM nginx:latest as webserver
-FROM slapers/alpine-node-chromium
+FROM nginx:latest as webserver
 
 ENV BUILDER_SRC_DIR=/usr/src
 
-COPY --from=builder $BUILDER_SRC_DIR/dist/lemon-mart /var/www/mysite
+COPY --from=tester $BUILDER_SRC_DIR/dist/lemon-mart /var/www/mysite
 COPY ./mysite.conf /etc/nginx/conf.d/default.conf
