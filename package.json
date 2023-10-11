@@ -1,6 +1,6 @@
 {
   "name": "lemon-mart",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "scripts": {
     "ng": "ng",
     "style:fix": "import-sort --write \"**/{src,tests,e2e}/**/*.ts\" && prettier --write \"**/{src,tests,e2e}/**/*.{*css,ts,html}\"",
@@ -19,7 +19,7 @@
     "cypress:run": "npx cypress run --record",
     "test:coverage": "npm test -- --browsers ChromiumNoSandbox --watch=false --code-coverage",
     "posttest:coverage": "http-server -c-1 -o -p 9875 ./coverage",
-    "predocker:build": "npm run build",
+    "predocker:build": "npm run build:prod",
     "docker:build": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version",
     "postdocker:build": "npm run docker:tag",
     "docker:tag": " cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",

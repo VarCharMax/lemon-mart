@@ -21,9 +21,6 @@ WORKDIR $TESTER_SRC_DIR
 
 COPY --from=builder $BUILDER_SRC_DIR .
 
-# force update the webdriver, so it runs with latest version of Chrome
-# RUN cd ./node_modules/protractor && npm i webdriver-manager@latest
-
 RUN npm run test:prod
 
 FROM nginx:latest as webserver
