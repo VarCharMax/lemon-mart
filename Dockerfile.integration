@@ -10,7 +10,6 @@ COPY . .
 RUN npm ci
 RUN npm run style
 RUN npm run lint
-
 RUN npm run build:prod
 
 FROM arabesque/minimal-node-chrome-test-env:latest as tester
@@ -19,12 +18,11 @@ ENV BUILDER_SRC_DIR=/usr/src
 ENV TESTER_SRC_DIR=/usr/src
 
 WORKDIR $TESTER_SRC_DIR
-COPY --chown=chrome:chrome --from=builder $BUILDER_SRC_DIR .
+
+COPY --from=builder $BUILDER_SRC_DIR .
 
 # force update the webdriver, so it runs with latest version of Chrome
 # RUN cd ./node_modules/protractor && npm i webdriver-manager@latest
-
-WORKDIR $TESTER_SRC_DIR
 
 RUN npm run test:prod
 
