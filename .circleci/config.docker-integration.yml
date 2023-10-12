@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Execute Pipeline (Build Source -> Test -> Build Web Server)
           command: |
-            docker build -f integration.Dockerfile . -t lemon-mart:$CIRCLE_BRANCH
+            docker build -f Dockerfile.integration . -t lemon-mart:$CIRCLE_BRANCH
             mkdir -p docker-cache
             docker save lemon-mart:$CIRCLE_BRANCH | gzip > docker-cache/built-image.tar.gz
 

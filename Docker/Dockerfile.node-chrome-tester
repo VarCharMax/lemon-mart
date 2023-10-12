@@ -2,6 +2,7 @@ FROM node:20-alpine
 
 ADD xvfb-chromium /usr/bin/xvfb-chromium
 
+# Stop script on error
 RUN set -e \
   && echo " ------ INSTALLING PACKAGES ------" \
   && apk -U --no-cache add udev chromium xvfb dbus ttf-freefont bash git \
