@@ -60,7 +60,7 @@ commands:
         default: 'lemon-mart'
     steps:
       - run:
-          command: npx cypress run
+          command: npx cypress run --config-file cypress/cypress.config.ts
           # install-browsers: true
           # start-command: npm start
 
