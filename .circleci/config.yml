@@ -60,9 +60,9 @@ commands:
         default: 'lemon-mart'
     steps:
       - run:
-          command: npx cypress run --config-file cypress/cypress.config.ts
-          # install-browsers: true
-          # start-command: npm start
+          command: npx cypress run --config-file cypress/cypress.config.ts --browser chrome
+          install-browsers: true
+          start-command: npm start
 
       - store_test_results:
           path: ./test_results
