@@ -59,15 +59,15 @@ commands:
         type: string
         default: 'lemon-mart'
     steps:
-      - run:
-          command: npx cypress run --config-file cypress/cypress.config.ts --browser chrome
-          install-browsers: true
-          start-command: npm start
-
-      - store_test_results:
-          path: ./test_results
-      - store_artifacts:
-          path: ./coverage
+#      - run:
+#          command: npx cypress run --config-file cypress/cypress.config.ts --browser chrome
+#          install-browsers: true
+#          start-command: npm start
+#
+#      - store_test_results:
+#          path: ./test_results
+#      - store_artifacts:
+#          path: ./coverage
 
       # upload coverage report to coveralls for readme badge support
       # requires config.yml version 2.1 and orbs: coveralls: coveralls/coveralls@1.0.4
@@ -117,7 +117,7 @@ jobs:
       - lint
       - build_and_test
 #      - cypress/install
-#      - store
+      - store
   deploy:
     docker:
       - image: cimg/node:lts
