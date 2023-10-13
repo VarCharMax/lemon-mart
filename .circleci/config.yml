@@ -116,8 +116,8 @@ jobs:
       - install
       - lint
       - build_and_test
-      - cypress/install
-      - store
+#      - cypress/install
+#      - store
   deploy:
     docker:
       - image: cimg/node:lts
