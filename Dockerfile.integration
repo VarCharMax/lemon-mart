@@ -23,7 +23,7 @@ COPY --from=builder $BUILDER_SRC_DIR .
 
 RUN npm run test:prod
 
-FROM nginx:latest as webserver
+FROM nginx:1.29.4-trixie as webserver
 
 ENV BUILDER_SRC_DIR=/usr/src
 
